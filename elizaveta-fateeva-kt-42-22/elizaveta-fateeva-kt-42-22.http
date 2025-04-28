@@ -1,0 +1,6 @@
+@elizaveta_fateeva_kt_42_22_HostAddress = http://localhost:5012
+
+GET {{elizaveta_fateeva_kt_42_22_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
