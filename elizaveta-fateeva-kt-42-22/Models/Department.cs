@@ -1,4 +1,6 @@
-﻿namespace elizaveta_fateeva_kt_42_22.Models
+﻿using System.Text.Json.Serialization;
+
+namespace elizaveta_fateeva_kt_42_22.Models
 {
     public class Department
     {
@@ -9,9 +11,10 @@
 
         public int Year { get; set; }
 
-        public int HeadOfDepartmentId { get; set; }
-
-        public Teacher HeadOfDepartment { get; set; }
+        public int? HeadOfDepartmentId { get; set; }
+        
+        [JsonIgnore] 
+        public Teacher? HeadOfDepartment { get; set; }
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace elizaveta_fateeva_kt_42_22.Models
 {
@@ -8,18 +9,18 @@ namespace elizaveta_fateeva_kt_42_22.Models
 
         public string TeacherName { get; set; }
 
-        public int DepartmentId { get; set; }
+        public int? DepartmentId { get; set; }
 
-        public Department Department { get; set; }  
+        [JsonIgnore] public Department? Department { get; set; }  
 
         public int DegreeId { get; set; }
 
-        public Degree Degree { get; set; }
+        [JsonIgnore]  public Degree? Degree { get; set; }
 
         public int PositionId { get; set; }
 
-        public Position Position { get; set; }
+        [JsonIgnore] public Position? Position { get; set; }
 
-        public Department ManagedDepartment { get; set; }
+        [JsonIgnore] public Department? ManagedDepartment { get; set; }
     }
 }
