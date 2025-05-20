@@ -70,14 +70,28 @@ namespace elizaveta_fateeva_kt_42_22.Services
         public async Task DeleteDepartmentAsync(int id, CancellationToken cancellationToken)
         {
             var department = await _dbContext.Departments
-                .Include(d => d.HeadOfDepartment)
                 .FirstOrDefaultAsync(d => d.DepartmentId == id, cancellationToken);
 
             if (department == null)
                 return;
 
-            var teachers = _dbContext.Teachers.Where(t => t.DepartmentId == id);
+            var teachers = await _dbContext.Teachers
+                .Where(t => t.DepartmentId == id)
+                .ToListAsync(cancellationToken);
+
+            var teacherIds = teachers.Select(t => t.TeacherId).ToList();
+
+            var departmentsWithTheseAsHeads = await _dbContext.Departments
+                .Where(d => teacherIds.Contains(d.HeadOfDepartmentId.Value))
+                .ToListAsync(cancellationToken);
+
+            foreach (var d in departmentsWithTheseAsHeads)
+            {
+                d.HeadOfDepartmentId = null;
+            }
+
             _dbContext.Teachers.RemoveRange(teachers);
+
             _dbContext.Departments.Remove(department);
 
             await _dbContext.SaveChangesAsync(cancellationToken);

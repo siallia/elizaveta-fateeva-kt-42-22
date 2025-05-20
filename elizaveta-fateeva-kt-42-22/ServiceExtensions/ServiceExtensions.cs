@@ -12,6 +12,7 @@ namespace elizaveta_fateeva_kt_42_22.ServiceExtensions
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<IDisciplineService, DisciplineService>();
             services.AddScoped<IStudyLoadService, StudyLoadService>();
+            services.AddScoped<IDepartmentDisciplineService, DepartmentDisciplineService>();
             return services;
         }
     }

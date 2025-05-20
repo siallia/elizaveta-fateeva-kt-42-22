@@ -44,6 +44,7 @@ namespace elizaveta_fateeva_kt_42_22.Controllers
             await _departmentService.DeleteDepartmentAsync(id, cancellationToken);
             return NoContent();
         }
+
     }
 
 

@@ -11,8 +11,8 @@ using elizaveta_fateeva_kt_42_22.Database;
 namespace elizaveta_fateeva_kt_42_22.Migrations
 {
     [DbContext(typeof(DepartmentDbContext))]
-    [Migration("20250428100844_CreateDatabase")]
-    partial class CreateDatabase
+    [Migration("20250512085643_uppBase")]
+    partial class uppBase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,7 +62,7 @@ namespace elizaveta_fateeva_kt_42_22.Migrations
                         .HasColumnName("department_name")
                         .HasComment("Название кафедры");
 
-                    b.Property<int>("HeadOfDepartmentId")
+                    b.Property<int?>("HeadOfDepartmentId")
                         .HasColumnType("integer")
                         .HasColumnName("head_of_department_id")
                         .HasComment("Идентификатор заведующего кафедрой");
@@ -167,7 +167,7 @@ namespace elizaveta_fateeva_kt_42_22.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("degree_id");
 
-                    b.Property<int>("DepartmentId")
+                    b.Property<int?>("DepartmentId")
                         .HasColumnType("integer")
                         .HasColumnName("department_id");
 
@@ -199,7 +199,6 @@ namespace elizaveta_fateeva_kt_42_22.Migrations
                         .WithOne("ManagedDepartment")
                         .HasForeignKey("elizaveta_fateeva_kt_42_22.Models.Department", "HeadOfDepartmentId")
                         .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired()
                         .HasConstraintName("fk_cd_department_head_of_department");
 
                     b.Navigation("HeadOfDepartment");
@@ -239,7 +238,6 @@ namespace elizaveta_fateeva_kt_42_22.Migrations
                         .WithMany()
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired()
                         .HasConstraintName("fk_cd_teacher_department_id");
 
                     b.HasOne("elizaveta_fateeva_kt_42_22.Models.Position", "Position")
@@ -258,8 +256,7 @@ namespace elizaveta_fateeva_kt_42_22.Migrations
 
             modelBuilder.Entity("elizaveta_fateeva_kt_42_22.Models.Teacher", b =>
                 {
-                    b.Navigation("ManagedDepartment")
-                        .IsRequired();
+                    b.Navigation("ManagedDepartment");
                 });
 #pragma warning restore 612, 618
         }
