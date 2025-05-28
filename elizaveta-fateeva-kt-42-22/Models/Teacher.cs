@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 
 namespace elizaveta_fateeva_kt_42_22.Models
 {
@@ -22,5 +23,11 @@ namespace elizaveta_fateeva_kt_42_22.Models
         [JsonIgnore] public Position? Position { get; set; }
 
         [JsonIgnore] public Department? ManagedDepartment { get; set; }
+
+        public bool IsTeacherNameValid()
+        {
+
+            return !string.IsNullOrEmpty(TeacherName) && Regex.IsMatch(TeacherName, @"^[A-ZА-Я][a-zа-яё]*$");
+        }
     }
 }

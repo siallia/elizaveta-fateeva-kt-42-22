@@ -4,6 +4,7 @@ using NLog;
 using NLog.Web;
 using elizaveta_fateeva_kt_42_22.Database;
 using elizaveta_fateeva_kt_42_22.ServiceExtensions;
+using elizaveta_fateeva_kt_42_22.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,7 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+    app.UseMiddleware<ExceptionHandlerMiddleware>();
 
     app.UseAuthorization();
 

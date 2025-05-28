@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elizaveta-fateeva-kt-42-22", "elizaveta-fateeva-kt-42-22\elizaveta-fateeva-kt-42-22.csproj", "{74E39CB1-7E9C-4FE2-AE10-0325781E2EF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elizaveta-fateeva-kt-42-22.Tests", "elizaveta-fateeva-kt-42-22.Tests\elizaveta-fateeva-kt-42-22.Tests.csproj", "{256C5966-71E5-4199-A573-BAF3119CF55D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{74E39CB1-7E9C-4FE2-AE10-0325781E2EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74E39CB1-7E9C-4FE2-AE10-0325781E2EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74E39CB1-7E9C-4FE2-AE10-0325781E2EF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256C5966-71E5-4199-A573-BAF3119CF55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256C5966-71E5-4199-A573-BAF3119CF55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256C5966-71E5-4199-A573-BAF3119CF55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256C5966-71E5-4199-A573-BAF3119CF55D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
